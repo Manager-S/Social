@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sameer | Comprehensive Management Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fafafa;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+
+        .heading-font {
+            font-family: 'Instrument Serif', serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ff0080, #7928ca, #0070f3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #ff0080, #7928ca);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Chosen Palette: Electric Sunset (Vibrant Accents on Warm White) -->
+    
+    <!-- Application Structure Plan: 
+        1. Expanded Hero: Sets the stage with a strong value proposition for "Any Work."
+        2. Philosophy Section: Explains the 'Why' behind Sameer's services to build trust.
+        3. Detailed Service Matrix: A 4-column interactive grid showing depth of tasks.
+        4. The "Versatility" Explorer: A section using JS to show specific task examples for different types of clients.
+        5. Workflow Timeline: A step-by-step visual on how to start working with Sameer.
+        6. Expanded Contact: A large, bold footer designed for impact.
+        The goal is to increase content volume without sacrificing the 'small text' elegance the user requested. -->
+
+    <!-- Visualization & Content Choices: 
+        1. Interactive Task Grid: Goal - Organize complexity. Method - CSS Grid + Hover reveals.
+        2. Workflow Diagram: Goal - Change/Process. Method - Styled HTML/CSS Flexbox.
+        3. Interaction: Scroll-triggered animations for engagement.
+        4. Typography: Small but highly readable Jakarta Sans paired with large Instrument Serif display headings.
+        CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <span class="heading-font text-3xl font-bold gradient-text italic cursor-pointer">Sameer.</span>
+            <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#how-it-works" class="nav-link">Workflow</a>
+                <a href="#contact" class="nav-link text-black font-black">Get Started</a>
+            </div>
+            <a href="mailto:sameereditor35@gmail.com" class="md:hidden text-[10px] font-black uppercase text-pink-500 border border-pink-500 px-4 py-2 rounded-full">Mail</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center pt-20 pb-12 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-[10px] font-bold tracking-[0.4em] text-pink-500 uppercase mb-6 block fade-in" style="animation-delay: 0.1s;">Personal & Digital Management</span>
+                <h1 class="heading-font text-6xl md:text-8xl mb-8 leading-[1.1] fade-in" style="animation-delay: 0.3s;">
+                    If you do it, <br><span class="gradient-text italic">I can manage it.</span>
+                </h1>
+                <p class="text-sm md:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed mb-12 fade-in" style="animation-delay: 0.5s;">
+                    Stop letting small tasks eat your big hours. From inbox control to social growth and daily logistics, I handle the work that makes your life feel cluttered.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in" style="animation-delay: 0.7s;">
+                    <a href="#services" class="w-full sm:w-auto bg-black text-white text-[11px] font-bold uppercase tracking-widest px-10 py-4 rounded-full hover:scale-105 transition-transform">Explore Services</a>
+                    <a href="#contact" class="w-full sm:w-auto bg-white border border-gray-200 text-black text-[11px] font-bold uppercase tracking-widest px-10 py-4 rounded-full hover:bg-gray-50 transition-colors">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About/Philosophy Section -->
+        <section id="about" class="py-24 px-6 bg-white reveal">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="heading-font text-4xl md:text-5xl mb-6">Focus on your life, <br>leave the <span class="italic text-purple-600">details</span> to me.</h2>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-6">
+                        Management isn't just about completing a list; it's about understanding the flow of your day. My name is Sameer, and I specialize in becoming the "invisible hand" that keeps your digital and personal life running smoothly.
+                    </p>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        I don't limit myself to one niche. Whether you are a creator, a professional, or someone with a busy schedule, I adapt to your specific workflow to ensure nothing ever falls through the cracks.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-8 bg-pink-50 rounded-2xl text-center">
+                        <div class="text-3xl mb-2">✨</div>
+                        <h4 class="font-bold text-xs uppercase tracking-wider mb-2">Clarity</h4>
+                        <p class="text-[10px] text-gray-400">Removing noise from your daily routine.</p>
+                    </div>
+                    <div class="p-8 bg-purple-50 rounded-2xl text-center">
+                        <div class="text-3xl mb-2">🚀</div>
+                        <h4 class="font-bold text-xs uppercase tracking-wider mb-2">Growth</h4>
+                        <p class="text-[10px] text-gray-400">Managing platforms for expansion.</p>
+                    </div>
+                    <div class="p-8 bg-blue-50 rounded-2xl text-center">
+                        <div class="text-3xl mb-2">🎯</div>
+                        <h4 class="font-bold text-xs uppercase tracking-wider mb-2">Precision</h4>
+                        <p class="text-[10px] text-gray-400">Every detail handled with care.</p>
+                    </div>
+                    <div class="p-8 bg-cyan-50 rounded-2xl text-center">
+                        <div class="text-3xl mb-2">⚡</div>
+                        <h4 class="font-bold text-xs uppercase tracking-wider mb-2">Speed</h4>
+                        <p class="text-[10px] text-gray-400">Fast response and active updates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-32 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-20 reveal">
+                    <span class="text-[10px] font-bold tracking-[0.4em] text-purple-500 uppercase mb-4 block">Core Capabilities</span>
+                    <h2 class="heading-font text-5xl md:text-6xl italic">Versatile Management</h2>
+                    <p class="text-sm text-gray-400 mt-4">I offer a wide range of services designed to simplify any workload.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                    <!-- Account Management -->
+                    <div class="bg-white p-8 rounded-3xl service-card border-t-4 border-pink-500 reveal">
+                        <div class="text-2xl mb-6">📂</div>
+                        <h3 class="font-bold text-base mb-4">Account Systems</h3>
+                        <ul class="space-y-3 text-xs text-gray-500">
+                            <li>• Daily updates & maintenance</li>
+                            <li>• Subscription management</li>
+                            <li>• Profile optimization</li>
+                            <li>• Security monitoring</li>
+                        </ul>
+                    </div>
+
+                    <!-- Email & Communication -->
+                    <div class="bg-white p-8 rounded-3xl service-card border-t-4 border-purple-500 reveal">
+                        <div class="text-2xl mb-6">📩</div>
+                        <h3 class="font-bold text-base mb-4">Communication</h3>
+                        <ul class="space-y-3 text-xs text-gray-500">
+                            <li>• Inbox decluttering</li>
+                            <li>• Response handling</li>
+                            <li>• Calendar scheduling</li>
+                            <li>• Urgent alert filtering</li>
+                        </ul>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="bg-white p-8 rounded-3xl service-card border-t-4 border-blue-500 reveal">
+                        <div class="text-2xl mb-6">📸</div>
+                        <h3 class="font-bold text-base mb-4">Social Presence</h3>
+                        <ul class="space-y-3 text-xs text-gray-500">
+                            <li>• Instagram DM management</li>
+                            <li>• Content posting & tags</li>
+                            <li>• Engagement growth</li>
+                            <li>• Trend monitoring</li>
+                        </ul>
+                    </div>
+
+                    <!-- Custom Work -->
+                    <div class="bg-white p-8 rounded-3xl service-card border-t-4 border-cyan-500 reveal">
+                        <div class="text-2xl mb-6">🛠️</div>
+                        <h3 class="font-bold text-base mb-4">Any Custom Task</h3>
+                        <ul class="space-y-3 text-xs text-gray-500">
+                            <li>• Data entry & research</li>
+                            <li>• Event planning help</li>
+                            <li>• Document organization</li>
+                            <li>• Personal to-do lists</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task Explorer / Interactive Tab Section -->
+        <section class="py-24 px-6 bg-gray-900 text-white reveal">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="md:col-span-1">
+                        <h2 class="heading-font text-4xl mb-6 italic">Who I help.</h2>
+                        <div class="space-y-4" id="tab-buttons">
+                            <button onclick="showTab('creators')" class="tab-btn w-full text-left text-[11px] font-bold uppercase tracking-widest p-4 border-l-2 border-pink-500 bg-white/5 hover:bg-white/10 transition-all">For Creators</button>
+                            <button onclick="showTab('professionals')" class="tab-btn w-full text-left text-[11px] font-bold uppercase tracking-widest p-4 border-l-2 border-transparent hover:border-blue-500 hover:bg-white/5 transition-all">For Professionals</button>
+                            <button onclick="showTab('everyday')" class="tab-btn w-full text-left text-[11px] font-bold uppercase tracking-widest p-4 border-l-2 border-transparent hover:border-cyan-500 hover:bg-white/5 transition-all">For Everyday Life</button>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 bg-white/5 p-10 rounded-3xl border border-white/10 min-h-[300px]" id="tab-content">
+                        <div id="creators-content" class="tab-pane">
+                            <h3 class="text-xl font-bold mb-4 gradient-text">Unlocking Creative Flow</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed mb-6">I handle your Instagram engagement, moderate your comments, and manage your collaboration emails so you can stay in your creative zone without digital distractions.</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-[10px] bg-white/10 p-3 rounded">DM Management</div>
+                                <div class="text-[10px] bg-white/10 p-3 rounded">Posting Schedule</div>
+                                <div class="text-[10px] bg-white/10 p-3 rounded">Brand Outreach</div>
+                                <div class="text-[10px] bg-white/10 p-3 rounded">Audience Reply</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section -->
+        <section id="how-it-works" class="py-32 px-6 reveal">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-[10px] font-bold tracking-[0.4em] text-blue-500 uppercase mb-4 block">The Process</span>
+                <h2 class="heading-font text-5xl mb-20 italic">Simple Start.</h2>
+                
+                <div class="relative">
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-gray-200 -z-10"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <div class="bg-white p-8 rounded-2xl relative">
+                            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold mx-auto mb-6">01</div>
+                            <h4 class="font-bold text-sm mb-2">Connect</h4>
+                            <p class="text-xs text-gray-500">Send me an email with the tasks you need handled.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-2xl relative">
+                            <div class="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center text-xs font-bold mx-auto mb-6">02</div>
+                            <h4 class="font-bold text-sm mb-2">Setup</h4>
+                            <p class="text-xs text-gray-500">We define the scope and I integrate into your workflow.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-2xl relative">
+                            <div class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold mx-auto mb-6">03</div>
+                            <h4 class="font-bold text-sm mb-2">Manage</h4>
+                            <p class="text-xs text-gray-500">I take over the work, providing you with daily freedom.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-32 px-6 bg-white reveal">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="p-12 md:p-20 bg-gray-50 rounded-[3rem] border border-gray-100">
+                    <span class="text-[10px] font-bold tracking-[0.4em] text-pink-500 uppercase mb-6 block">Ready to Begin?</span>
+                    <h2 class="heading-font text-5xl md:text-7xl mb-10">Let's handle <br><span class="gradient-text italic">the rest.</span></h2>
+                    <a href="mailto:sameereditor35@gmail.com" class="text-xl md:text-3xl font-bold hover:text-pink-600 transition-colors border-b-4 border-pink-100 pb-2 break-all inline-block">
+                        sameereditor35@gmail.com
+                    </a>
+                    <p class="mt-12 text-[10px] text-gray-400 font-bold uppercase tracking-widest">Always responding within 24 hours</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            <span class="heading-font text-2xl font-bold gradient-text italic">Sameer.</span>
+            <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 flex space-x-8">
+                <a href="#about" class="hover:text-black">About</a>
+                <a href="#services" class="hover:text-black">Services</a>
+                <a href="#contact" class="hover:text-black">Contact</a>
+            </div>
+            <p class="text-[9px] text-gray-300 font-bold uppercase tracking-widest">© 2024 Management Portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => scrollObserver.observe(el));
+
+        // Interactive Tabs Logic
+        const tabData = {
+            creators: {
+                title: "Unlocking Creative Flow",
+                description: "I handle your Instagram engagement, moderate your comments, and manage your collaboration emails so you can stay in your creative zone without digital distractions.",
+                tasks: ["DM Management", "Posting Schedule", "Brand Outreach", "Audience Reply"],
+                color: "pink"
+            },
+            professionals: {
+                title: "Optimized Business Ops",
+                description: "Managing your complex scheduling, email filtering, and administrative accounts to ensure your professional reputation stays flawless while you work.",
+                tasks: ["Calender Mastery", "Email Prioritization", "Document Prep", "Client Updates"],
+                color: "blue"
+            },
+            everyday: {
+                title: "Personal Life Balance",
+                description: "From travel bookings to personal subscriptions and daily organization, I act as your personal digital assistant for any task that slows you down.",
+                tasks: ["Personal Logistics", "Bill Management", "Research Tasks", "To-Do Lists"],
+                color: "cyan"
+            }
+        };
+
+        function showTab(type) {
+            const content = document.getElementById('tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            const data = tabData[type];
+            
+            // Update buttons
+            buttons.forEach(btn => {
+                btn.style.borderColor = 'transparent';
+                btn.style.backgroundColor = 'rgba(255,255,255,0.05)';
+            });
+            event.currentTarget.style.borderColor = `var(--tw-${data.color}-500)`;
+            
+            // Transition content
+            content.style.opacity = 0;
+            setTimeout(() => {
+                content.innerHTML = `
+                    <div class="tab-pane fade-in">
+                        <h3 class="text-xl font-bold mb-4 gradient-text">${data.title}</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">${data.description}</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            ${data.tasks.map(task => `<div class="text-[10px] bg-white/10 p-3 rounded">${task}</div>`).join('')}
+                        </div>
+                    </div>
+                `;
+                content.style.opacity = 1;
+            }, 200);
+        }
+
+        // Initialize first tab
+        document.addEventListener('DOMContentLoaded', () => {
+            // No changes needed, first tab is already in HTML
+        });
+    </script>
+</body>
+</html>
